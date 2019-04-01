@@ -41,10 +41,10 @@
                         <div>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-sm btn-info " id="button" >
-                                    Calcul amount
+                                    Calculate Amount
                                 </button>
                                 <button type="submit" class="btn btn-sm btn-info " id="addOne" >
-                                    add a new goods
+                                    Add more Items
                                 </button>
                                 <button type="submit" class="btn btn-sm btn-info "  >
                                     Check quantity
@@ -68,7 +68,7 @@
                                 </div>
                                 <br>
                                 {{ Form::open(['url' => url('/orders/add'), 'method' => 'post']) }}
-                                    <input type="hidden" id="total" name="total" value="232">
+                                    <input type="hidden" id="total" name="total" value="">
                                     @include('admin.orders.form')
                                     <input type="submit" style="display: none">
 
@@ -76,7 +76,7 @@
                                 <div>
                                     <button id="check" class="amount btn btn-lg btn-primary btn-block" >
                                         <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                        <span id="payment-button-amount ">Pay </span>
+                                        <span id="payment-button-amount ">Save </span>
                                     </button>
                                 </div>
 
@@ -122,7 +122,7 @@
                     $.get("{{ url('/orders/price/') }}/"+goods[i], function(response){
                         price += response.selling_price * quantity[i];
                         let icon = '<i class="fa fa-lock fa-lg"></i>&nbsp;\n';
-                        $('.amount').html(icon+" Pay "+price+" DH");
+                        $('.amount').html(icon+" Total "+price+" PKR");
                         $("#total").val(price);
                     });
                 }

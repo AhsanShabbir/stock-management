@@ -34,13 +34,13 @@
                     </ul>
                 </li>
 
-                <li class="menu-item-has-children dropdown">
+                {{-- <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>Providers</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{ url('providers') }}">All providers</a></li>
                         <li><i class="fa fa-plus-square"></i><a href="{{ url('providers/add') }}">Add a new provider</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <h3 class="menu-title"></h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
@@ -60,10 +60,10 @@
                     </ul>
                 </li>
 
-                <h3 class="menu-title"></h3><!-- /.menu-title -->
+                {{-- <h3 class="menu-title"></h3><!-- /.menu-title -->
                 <li class="">
                     <a href="{{ url('/calendar') }}"> <i class="menu-icon fa fa-calendar-check-o"></i>Calendar</a>
-                </li>
+                </li> --}}
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

@@ -90,7 +90,7 @@ function countStock()
 
 function totalSales()
 {
-    $sales = \App\Orders::sum('total');
+    $sales = \App\Orders::where('status', 'complete')->sum('total');
     return $sales;
 }
 
@@ -102,7 +102,7 @@ function getTasks()
 
 function NumOfSales()
 {
-    $sales = count(\App\Orders::all());
+    $sales =  \App\Orders::where('status', 'complete')->count();
     return $sales;
 }
 

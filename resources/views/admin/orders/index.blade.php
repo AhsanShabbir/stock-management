@@ -50,19 +50,28 @@
                                         <th>Client</th>
                                         <th>Total</th>
                                         <th>Date</th>
+                                        <th>status</th>
                                         <th>control</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($orders as $order)
+
+                                    <?php
+                                    $disabled_string = ($order->status == 'cancelled') ? 'disabled' : '' ;
+                                    ?>
                                         <tr>
                                             <td>{{ $order->id }}</td>
                                             <td>{{ clients()[$order->client_id] }}</td>
-                                            <td>{{ $order->total }} DH</td>
+                                            <td>{{ number_format($order->total) }} PKR</td>
                                             <td>{{ $order->created_at }}</td>
+                                            <td>{{ $order->status }}</td>
                                             <td>
-                                                <a href="{{ url('/order/show/'.$order->id) }}"><button class="btn btn-primary btn-sm">show</button></a>
-                                                <a href="{{ url('/order/delete/'.$order->id) }}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                                <a  href="{{ url('/order/show/'.$order->id) }}"><button class="btn btn-primary btn-sm">show </button></a>
+                                                <a class="confirmation"  href="{{ url('/order/delete/'.$order->id) }}"><button 
+                                                
+                                                 {{$disabled_string}}
+                                                 class="btn btn-danger btn-sm">Cancel Order</button></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -98,6 +107,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            $('.confirmation').on('click', function () {
+        return confirm('Are you sure you want to cancel this order?');
+    });
             $('#bootstrap-data-table-export').DataTable();
         } );
     </script>

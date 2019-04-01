@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-xs-04">
                     <h2 class="page-header" >
-                        <i class="fa fa-globe"></i> société XYZ
+                        <i class="fa fa-globe"></i> Fatima Collections
                     </h2>
                 </div>
                 <!-- /.col -->
@@ -47,13 +47,9 @@
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    <address>
-                        <strong>Société XYZ</strong><br>
-                        795 Folsom Ave, Suite 600<br>
-                        San Francisco, CA 94107<br>
-                        Phone: (804) 123-5432<br>
-                        Email: info@gmail.com
-                    </address>
+                    {{-- <address>
+                        <strong>Fatima Collections</strong><br>
+                    </address> --}}
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
@@ -62,9 +58,9 @@
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col pull-right">
                     <br>
-                    <b>commande N:</b> {{ $order->id }}<br>
-                    <b>Paiement dû:</b> {{ date_format($order->created_at, "d/m/y")  }}<br>
-                    <b>client:</b> {{ clients()[$order->client_id] }}
+                    <b>Order #:</b> {{ $order->id }}<br>
+                    <b>Date:</b> {{ date_format($order->created_at, "d/m/y")  }}<br>
+                    <b>Client:</b> {{ clients()[$order->client_id] }}
                 </div>
                 <!-- /.col -->
             </div>
@@ -79,9 +75,9 @@
                         <thead>
                         <tr style="height: 30px;">
                             <th>##</th>
-                            <th>quantité</th>
-                            <th>produit</th>
-                            <th>prix unitaire</th>
+                            <th>quantity</th>
+                            <th>item</th>
+                            <th>unit price</th>
                             <th>total</th>
                         </tr>
                         </thead>
@@ -91,8 +87,8 @@
                                 <th>{{ $detail->orders_id}}</th>
                                 <td style="">{{ $detail->quantity }}</td>
                                 <td>{{ goods()[$detail->stock_id] }}</td>
-                                <td>{{ $detail->amount / $detail->quantity }} DH</td>
-                                <td>{{ $detail->amount }} DH</td>
+                                <td>{{ number_format($detail->amount / $detail->quantity )}} PKR</td>
+                                <td>{{ number_format($detail->amount) }} PKR</td>
                             </tr>
 
                         @endforeach
@@ -102,7 +98,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th>{{ $order->total }} DH</th>
+                        <th>{{ number_format($order->total) }} PKR</th>
                         </tfoot>
                     </table>
                 </div>
@@ -113,7 +109,7 @@
                 <br>
                 <br>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <!-- accepted payments column -->
 
                 <!-- /.col -->
@@ -136,14 +132,14 @@
                     </div>
                 </div>
                 <!-- /.col -->
-            </div>
+            </div> --}}
             <!-- /.row -->
             <br>
             <br>
-
+{{-- 
             <div class="pull-right" style="margin-right: 20px">
                 <small>Merci pour votre confiance</small>
-            </div>
+            </div> --}}
             <br>
             <br>
 
@@ -151,10 +147,10 @@
             <div class="row no-print">
                 <div class="col-xs-12">
                     <a href="{{ url('/order/bill/'.$order->id) }}" target="_blank" ><button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                            <i class="fa fa-print"></i> imprimer
+                            <i class="fa fa-print"></i> Print
                         </button></a>
-                    <a href="{{ url('order/delete/'.$order->id) }}"><button type="button" class="btn btn-warning pull-left"><i class="fa fa-credit-card"></i> annuler l'operation
-                        </button></a>
+                         {{-- <a href="{{ url('order/delete/'.$order->id) }}" onclick="confirm('Are you sure you want to delete this order?');"><button type="button" class="btn btn-warning pull-left"><i class="fa fa-credit-card" onclick="con"></i>Delete Order
+                        </button></a> --}}
 
                 </div>
             </div>

@@ -3,7 +3,7 @@
 <div class="row" id="add">
     <div class="col-6">
         <div class="form-group">
-            <label for="cc-payment" class="control-label mb-1">Goods</label>
+            <label for="cc-payment" class="control-label mb-1">Item</label>
             {!! Form::select('stock[]', goods(), null, ['class' => 'form-control', 'id' => 'stock', 'required']) !!}
         </div>
     </div>

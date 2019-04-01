@@ -17,6 +17,7 @@ class Orders extends Migration
             $table->increments('id');
             $table->integer('client_id')->unsigned();
             $table->integer('total');
+            $table->enum('status', ['complete', 'cancelled', 'processing'])->default('complete');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
         });

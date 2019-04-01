@@ -12,4 +12,8 @@ class OrdersDetails extends Model
     protected $fillable = [
         'orders_id', 'stock_id', 'quantity', 'amount'
     ];
+
+    public function stock(){
+        return $this->hasMany('\App\Stock', 'stock_id', 'id');
+    }
 }

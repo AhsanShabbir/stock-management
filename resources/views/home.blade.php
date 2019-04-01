@@ -31,18 +31,18 @@
 
             <div class="row">
 
-                <div class="col-lg-8">
+                {{-- <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body"><iframe class="chartjs-hidden-iframe" style="display: block; overflow: hidden; border: 0px none; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;" tabindex="-1"></iframe>
                             <h4 class="mb-3">Yearly Sales </h4>
                             <canvas id="sales-chart" height="350" style="width: 350px"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
 
 
-                <div class="col-lg-4 col-md-6">
+                {{-- <div class="col-lg-4 col-md-6">
                     <aside class="profile-nav alt">
                         <section class="card" style="height: 410px;">
                             <div class="card-header user-header alt">
@@ -67,20 +67,20 @@
                                 </li>
                                 @endforeach
                             </ul>
-                        </section>
+                        </section> 
 
                     </aside>
-                </div>
+                </div> --}}
 
 
                 <div class="col-xl-3 col-lg-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="stat-widget-one">
-                                <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                               
                                 <div class="stat-content dib">
-                                    <div class="stat-text">Total Sales <small>monthly</small></div>
-                                    <div class="stat-digit">{{ totalSales() }} DH</div>
+                                    <div class="stat-text">Total Sales </div>
+                                    <div class="stat-digit">{{ number_format(totalSales()) }} PKR</div>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
             </div>
 
 
-            <div class="row">
+            {{-- <div class="row">
                 <div  class="col-xl-5">
                     <div class="card" style="height: 420px;">
                         <div class="card-header">
@@ -221,7 +221,7 @@
                     </div>
                     <!-- /# card -->
                 </div>
-            </div>
+            </div> --}}
 
 
 

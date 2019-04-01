@@ -35,11 +35,12 @@ class OrderController extends Controller
         //dd($request->client);
         $count = count($request->quantity);
         $data = [''];
-        $create = $orders->create([
+        $order = $orders->create([
             'total' => $request->total,
             'client_id' => $request->client
         ]);
-        $id = $create->id;
+        $total = 0;
+        $id = $order->id;
         for ($i=0; $i < $count; $i++){
             if ($request->stock[$i] != '' & $request->quantity[$i] != ''){
                 $selling_price =  $stock->where('id', $request->stock[$i])->get()[0];
@@ -49,6 +50,7 @@ class OrderController extends Controller
                     'quantity' => $request->quantity[$i],
                     'amount' => $selling_price->selling_price * $request->quantity[$i],
                 ];
+                $total  = $total + $data['amount'];
                 $details->create($data);
 
                 $oldQuantity = $stock->where('id', $request->stock[$i]);
@@ -57,12 +59,20 @@ class OrderController extends Controller
             }
         }
 
+        $order->total = $total;
+
+        $order->save();
+
         return Redirect::back()->withSuccess('The order is successfully created');
     }
 
     public function showOrder($id, Orders $orders, OrdersDetails $ordersDetails)
     {
-        $order = $orders->where('id', $id)->get()[0];
+
+        $order = $orders->with('stock')->where('id', $id)->get()[0];
+  
+
+
         $details = $orders->find($id)->details()->get();
         return view('admin.orders.show', compact('order', 'details'));
     }
@@ -76,9 +86,11 @@ class OrderController extends Controller
 
     public function destroyOrder($id, Orders $orders, OrdersDetails $details)
     {
-        $details->where('orders_id', $id)->delete();
-        $orders->where('id', $id)->delete();
-        return Redirect('/orders')->withSuccess('The order is successfully deleted');
+        //$details->where('orders_id', $id)->delete();
+        $order = $orders->where('id', $id)->get()[0];
+        $order->status = 'cancelled';
+        $order->save();
+        return Redirect('/orders')->withSuccess('The order is successfully cancelled');
     }
 
 }

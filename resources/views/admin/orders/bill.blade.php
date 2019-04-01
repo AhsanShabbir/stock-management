@@ -29,19 +29,19 @@
     <section class="invoice" style="margin: 20px">
         <!-- title row -->
 
-                <h2 class="page-header" style="text-align: center">
+                {{-- <h2 class="page-header" style="text-align: center">
                     <i class="fa fa-globe"></i> société XYZ
-                </h2>
+                </h2> --}}
 
         <!-- info row -->
         <div class="row invoice-info">
             <div class="col-sm-4 invoice-col">
                 <address>
-                    <strong>Société XYZ</strong><br>
+                    {{-- <strong>Société XYZ</strong><br>
                     795 Folsom Ave, Suite 600<br>
                     San Francisco, CA 94107<br>
                     Phone: (804) 123-5432<br>
-                    Email: info@gmail.com
+                    Email: info@gmail.com --}}
                 </address>
             </div>
             <!-- /.col -->
@@ -51,9 +51,9 @@
             <!-- /.col -->
             <div class="col-sm-4 invoice-col pull-right">
                 <br>
-                <b>commande N:</b> {{ $order->id }}<br>
-                <b>Paiement dû:</b> {{ date_format($order->created_at, "d/m/y")  }}<br>
-                <b>client:</b> {{ clients()[$order->client_id] }}
+                <b>Order #:</b> {{ $order->id }}<br>
+                <b>Date:</b> {{ date_format($order->created_at, "d/m/y")  }}<br>
+                <b>Client:</b> {{ clients()[$order->client_id] }}
             </div>
             <!-- /.col -->
         </div>
@@ -68,9 +68,9 @@
                     <thead>
                     <tr style="height: 30px;">
                         <th>##</th>
-                        <th>quantité</th>
-                        <th>produit</th>
-                        <th>prix unitaire</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Price</th>
                         <th>total</th>
                     </tr>
                     </thead>
@@ -102,7 +102,7 @@
             <br>
             <br>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <!-- accepted payments column -->
 
             <!-- /.col -->
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <!-- /.col -->
-        </div>
+        </div> --}}
         <!-- /.row -->
         <br>
         <br>

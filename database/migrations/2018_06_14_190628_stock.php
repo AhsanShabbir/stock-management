@@ -20,7 +20,7 @@ class Stock extends Migration
             $table->integer('base_price');
             $table->integer('selling_price');
             $table->tinyInteger('status');
-            $table->tinyInteger('notifications');
+            $table->tinyInteger('notifications')->nullable();
             $table->timestamps();
         });
     }
