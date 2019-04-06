@@ -14,6 +14,6 @@ class OrdersDetails extends Model
     ];
 
     public function stock(){
-        return $this->hasMany('\App\Stock', 'stock_id', 'id');
+        return $this->hasMany('\App\Stock', 'id', 'stock_id');
     }
 }

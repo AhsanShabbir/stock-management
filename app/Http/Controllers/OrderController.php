@@ -36,7 +36,7 @@ class OrderController extends Controller
         $count = count($request->quantity);
         $data = [''];
         $order = $orders->create([
-            'total' => $request->total,
+            'total' => 0,
             'client_id' => $request->client
         ]);
         $total = 0;
@@ -69,7 +69,9 @@ class OrderController extends Controller
     public function showOrder($id, Orders $orders, OrdersDetails $ordersDetails)
     {
 
-        $order = $orders->with('stock')->where('id', $id)->get()[0];
+        $order = $orders->with('details.stock')->where('id', $id)->get()[0];
+
+        // dd($order->toArray());
   
 
 
@@ -87,7 +89,16 @@ class OrderController extends Controller
     public function destroyOrder($id, Orders $orders, OrdersDetails $details)
     {
         //$details->where('orders_id', $id)->delete();
-        $order = $orders->where('id', $id)->get()[0];
+        $order = $orders->with('details.stock')->where('id', $id)->get()[0];
+        foreach($orders->details as $detail){
+           $stock = Stock::where(id, $detail->stock_id)->get();
+           $stockBefore = $stock;
+           $stock->quantity = $stock->quantity + $detail->quantity;
+           $stock->save();
+
+           dd($stockBefore, $stock);
+        }
+        
         $order->status = 'cancelled';
         $order->save();
         return Redirect('/orders')->withSuccess('The order is successfully cancelled');
