@@ -60,7 +60,7 @@ Route::group(["middleware" => "auth"], function (){
     Route::get('/orders/add', 'OrderController@createOrder');
     Route::get('/orders/price/{id}', 'OrderController@orderPrice'); //ajax call
     Route::post('/orders/add', 'OrderController@storeOrder');
-    Route::get('/order/show/{id}', 'OrderController@showOrder');
+    Route::get('/order/show/{id}', 'OrderController@showOrder')->name('orders.show');
     Route::get('/order/bill/{id}', 'OrderController@billOrder');
     Route::get('/order/delete/{id}', 'OrderController@destroyOrder');
 

@@ -36,25 +36,9 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <div class="card">
+                <div class="card" style="width:100%">
                     <div class="card-header">
-                        <div>
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-sm btn-info " id="button" >
-                                    Calculate Amount
-                                </button>
-                                <button type="submit" class="btn btn-sm btn-info " id="addOne" >
-                                    Add more Items
-                                </button>
-                                <button type="submit" class="btn btn-sm btn-info "  >
-                                    Check quantity
-                                </button>
-                            </div>
-
-                            <strong class="card-title">Credit Card</strong>
-
-                        </div>
-
+                            New Order
                     </div>
                     <div class="card-body">
                         <!-- Credit Card -->
@@ -73,16 +57,38 @@
                                     <input type="submit" style="display: none">
 
                                 {{ Form::close() }}
-                                <div>
-                                    <button id="check" class="amount btn btn-lg btn-primary btn-block" >
-                                        <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                        <span id="payment-button-amount ">Save </span>
+
+
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-sm btn-info " id="button" >
+                                        Calculate Total Amount
+                                    </button>
+                                    <button type="submit" class="btn btn-sm btn-info " id="addOne" >
+                                        Add more Items
+                                    </button>
+                                    <button type="submit" class="btn btn-sm btn-info "  id="check" >
+                                        Check quantity
                                     </button>
                                 </div>
 
                             </div>
                         </div>
 
+                    </div>
+                    <div class="card-footer">
+                        <div>
+                            
+
+                            <div>
+                                <button id="check" class="amount btn btn-lg btn-primary btn-block" >
+                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                    <span id="payment-button-amount ">Save </span>
+                                </button>
+                            </div>
+
+                            
+
+                        </div>
                     </div>
                 </div> <!-- .card -->
 
@@ -153,7 +159,7 @@
                         }else {
                             let final = count - i;
                             if (final == 1 & status == 0 & quantity[i] != '' & quantity[i] != 0 ){
-                                $("form").submit();
+                                $("#errors").html('<strong id="oldError" style="color: blue">All Items available!</strong>')
                             }else if(final == 1 & status == 0 & quantity[i] == '' | quantity[i] == 0){
                                 $("#errors").html('<strong id="oldError" style="color: red">**Invalid quantity</strong>')
                             }

@@ -32,7 +32,7 @@ class OrderController extends Controller
 
     public function storeOrder(Orders $orders, OrdersDetails $details, Request $request, Stock $stock)
     {
-        //dd($request->client);
+       
         $count = count($request->quantity);
         $data = [''];
         $order = $orders->create([
@@ -63,7 +63,10 @@ class OrderController extends Controller
 
         $order->save();
 
-        return Redirect::back()->withSuccess('The order is successfully created');
+        $redirectTo = route('orders.show', $order->id);
+
+        //return Redirect::back()->withSuccess('The order is successfully created');
+        return Redirect::to($redirectTo)->withSuccess('The order is successfully created');
     }
 
     public function showOrder($id, Orders $orders, OrdersDetails $ordersDetails)
@@ -88,15 +91,19 @@ class OrderController extends Controller
 
     public function destroyOrder($id, Orders $orders, OrdersDetails $details)
     {
+        
         //$details->where('orders_id', $id)->delete();
         $order = $orders->with('details.stock')->where('id', $id)->get()[0];
-        foreach($orders->details as $detail){
-           $stock = Stock::where(id, $detail->stock_id)->get();
+       // dd(count($order->details->toArray()));
+        foreach($order->details->toArray() as $detail){
+           // dd($detail);
+           $stock = Stock::where('id', $detail['stock_id'])->first();
+          // dd($stock);
            $stockBefore = $stock;
-           $stock->quantity = $stock->quantity + $detail->quantity;
+           $stock->quantity = $stock->quantity + $detail['quantity'];
            $stock->save();
 
-           dd($stockBefore, $stock);
+           //dd($stockBefore, $stock);
         }
         
         $order->status = 'cancelled';
