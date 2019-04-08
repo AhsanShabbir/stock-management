@@ -110,19 +110,19 @@
 
 {!! html::script('../admin/assets/js/vendor/jquery-2.1.4.min.js') !!}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-{!! html::script('admin/assets/js/plugins.js') !!}
-{!! html::script('admin/assets/js/main.js') !!}
+{!! html::script('admin/assets/js/plugins.js') !!} 
+ {{-- {!! html::script('admin/assets/js/main.js') !!}  --}}
 {!! html::script('admin/assets/js/lib/chart-js/Chart.bundle.js') !!}
-{!! Html::script('admin/assets/js/lib/chart-js/chartjs-init.js') !!}
-{!! html::script('admin/assets/js/dashboard.js') !!}
-{!! html::script('admin/assets/js/widgets.js') !!}
+{{-- {!! Html::script('admin/assets/js/lib/chart-js/chartjs-init.js') !!}  --}}
+{{-- {!! html::script('admin/assets/js/dashboard.js') !!} --}}
+ {{-- {!! html::script('admin/assets/js/widgets.js') !!}  --}}
 {!! html::script('admin/assets/js/lib/vector-map/jquery.vmap.js') !!}
-{!! html::script('admin/assets/js/lib/vector-map/jquery.vmap.min.js') !!}
-{!! html::script('admin/assets/js/lib/vector-map/jquery.vmap.sampledata.js') !!}
-{!! html::script('admin/assets/js/lib/vector-map/country/jquery.vmap.world.js') !!}
+{!! html::script('admin/assets/js/lib/vector-map/jquery.vmap.min.js') !!} 
+{{-- {!! html::script('admin/assets/js/lib/vector-map/jquery.vmap.sampledata.js') !!}  --}}
+ {!! html::script('admin/assets/js/lib/vector-map/country/jquery.vmap.world.js') !!}
 
 
-<script>
+{{-- <script>
     ( function ( $ ) {
         "use strict";
 
@@ -139,7 +139,7 @@
             normalizeFunction: 'polynomial'
         } );
     } )( jQuery );
-</script>
+</script> --}}
 @yield('script')
 </body>
 </html>

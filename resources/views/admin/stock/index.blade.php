@@ -40,6 +40,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Stock</strong>
+
+                                <div class="pull-right">
+
+                                        <a class="btn btn-primary" href="{{ route('stocks.create') }}" role="button">New Stock</a>
+                                   
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">

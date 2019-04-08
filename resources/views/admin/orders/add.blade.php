@@ -45,13 +45,13 @@
                         <div id="pay-invoice">
                             <div class="card-body">
                                 <div style="text-align: center">
-                                    <h3>Make sell</h3>
+                                    <h3>Make Sale</h3>
                                 </div>
                                 <div>
                                     <p id="errors"></p>
                                 </div>
                                 <br>
-                                {{ Form::open(['url' => url('/orders/add'), 'method' => 'post']) }}
+                                {{ Form::open(['url' => url('/orders/add'), 'method' => 'post', 'id'=>'orderForm']) }}
                                     <input type="hidden" id="total" name="total" value="">
                                     @include('admin.orders.form')
                                     <input type="submit" style="display: none">
@@ -80,7 +80,7 @@
                             
 
                             <div>
-                                <button id="check" class="amount btn btn-lg btn-primary btn-block" >
+                                <button id="submitform" class="amount btn btn-lg btn-primary btn-block" >
                                     <i class="fa fa-lock fa-lg"></i>&nbsp;
                                     <span id="payment-button-amount ">Save </span>
                                 </button>
@@ -136,11 +136,13 @@
             });
 
             $("#check").click(function () {
+               
                 let stock = 0;
                 let quantity = [];
                 let goods = [];
                 let count = $('input').length - 5;
                 let status = 0;
+                let errors = 0
 
                 console.log($('input').length);
 
@@ -156,21 +158,26 @@
                             let error = '<strong id="oldError" style="color: red">**There is not enough  '+response.goods_name+' in the stock'+ '\n Available quantity is:'+response.quantity+'</strong>'
                             $("#errors").html(error);
                             status = 1;
+                            errors = 1;
                         }else {
                             let final = count - i;
                             if (final == 1 & status == 0 & quantity[i] != '' & quantity[i] != 0 ){
                                 $("#errors").html('<strong id="oldError" style="color: blue">All Items available!</strong>')
                             }else if(final == 1 & status == 0 & quantity[i] == '' | quantity[i] == 0){
                                 $("#errors").html('<strong id="oldError" style="color: red">**Invalid quantity</strong>')
+                                errors = 1;
                             }
                         }
 
                     });
 
                 }
+            });
 
-
-
+            $("#submitform").click(function(){
+                
+                $( "#orderForm" ).submit();
+            
             });
 
 

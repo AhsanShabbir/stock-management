@@ -33,6 +33,21 @@ class OrderController extends Controller
     public function storeOrder(Orders $orders, OrdersDetails $details, Request $request, Stock $stock)
     {
        
+        if(has_dupes($request->input('stock'))){
+            return Redirect::back()->withError('Duplicate Items in Order');
+        }
+
+    
+        foreach($request->input('stock') as $key => $myStock){
+            if(checkQuantity($myStock, $request->input('quantity')[$key])){
+                // dd($myStock, $request->input('quantity')[$key]);
+            }else{
+                $val  = $key+ 1;
+                return Redirect::back()->withError('Stock unvailable for item # '. $val );
+            }
+        }
+        
+
         $count = count($request->quantity);
         $data = [''];
         $order = $orders->create([

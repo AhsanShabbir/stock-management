@@ -23,8 +23,8 @@ Route::group(["middleware" => "auth"], function (){
     Route::get('/', 'HomeController@index');
 
     //siteSettings
-    Route::get('/siteSetting', 'AdminController@siteSetting');
-    Route::post('/sitesetting', 'AdminController@updateSetting');
+    // Route::get('/siteSetting', 'AdminController@siteSetting');
+    // Route::post('/sitesetting', 'AdminController@updateSetting');
 
     Route::patch('/updateUser', 'AdminController@updateUserEmail');
     Route::patch('/updatePassword', 'AdminController@updateUserPassword');
@@ -47,8 +47,8 @@ Route::group(["middleware" => "auth"], function (){
     Route::get('/provider/delete/{id}', 'ProviderController@destroyProvider');
 
     //stock
-    Route::get('/stock', 'StockController@allStock');
-    Route::get('/stock/add', 'StockController@createStock');
+    Route::get('/stock', 'StockController@allStock')->name('stocks.index');
+    Route::get('/stock/add', 'StockController@createStock')->name('stocks.create');
     Route::post('/stock/add', 'StockController@storeStock');
     Route::get('/stock/edit/{id}', 'StockController@editStock');
     Route::patch('/stock/update/{id}', 'StockController@updateStock');
@@ -57,7 +57,7 @@ Route::group(["middleware" => "auth"], function (){
 
     //orders
     Route::get('/orders', 'OrderController@allOrders');
-    Route::get('/orders/add', 'OrderController@createOrder');
+    Route::get('/orders/add', 'OrderController@createOrder')->name('orders.create');
     Route::get('/orders/price/{id}', 'OrderController@orderPrice'); //ajax call
     Route::post('/orders/add', 'OrderController@storeOrder');
     Route::get('/order/show/{id}', 'OrderController@showOrder')->name('orders.show');

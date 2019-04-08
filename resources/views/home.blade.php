@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    {!! Html::script('admin/assets/js/lib/chart-js/Chart.bundle.js') !!}
+    {{-- {!! Html::script('admin/assets/js/lib/chart-js/Chart.bundle.js') !!} --}}
 
 @endsection
 
@@ -344,7 +344,7 @@
 
 
     <!--  Chart js -->
-<script>
+{{-- <script>
     //Sales chart
     var ctx = document.getElementById( "sales-chart" );
     ctx.height = 150;
@@ -420,7 +420,7 @@
 
 
 
-</script>
+</script> --}}
 
     <!--  Make sell -->
 

@@ -9,7 +9,7 @@
     </div>
     <div class="col-6">
         <label for="cc-payment" class="control-label mb-1">Quantity</label>
-        {!! Form::number('quantity[]', null, ['class' => 'form-control', 'required']) !!}
+        {!! Form::number('quantity[]', 1, ['class' => 'form-control', 'required']) !!}
 
     </div>
 </div>

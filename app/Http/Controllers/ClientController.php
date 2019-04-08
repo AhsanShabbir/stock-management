@@ -64,7 +64,12 @@ class ClientController extends Controller
     }
 
     public function destroy($id, Clients $clients)
-    {
+    {   $client = $clients->with('orders')->find($id);
+       
+        if(count($client->orders)){
+            return Redirect()->route('clients.index')->withError('Cannot delete a client with orders');
+        }
+
         $clients->find($id)->delete();
 
         return Redirect()->route('clients.index')->withSuccess('the Client is successfully deleted');

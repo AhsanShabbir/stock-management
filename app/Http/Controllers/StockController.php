@@ -67,7 +67,16 @@ class StockController extends Controller
 
     public function destroyStock($id, Stock $stock)
     {
+        $myStock = Stock::with('orders')->where('id', $id)->first();
+
+        if(count($myStock->orders)){
+            //dd($myStock->toArray());
+            return Redirect()->route('stocks.index')->withError('Cannot delete a Stock with orders');
+        }else{
+           
+        }
         $stock->find($id)->delete();
+
         return Redirect('/stock')->withSuccess('The stock is successfully updated');
     }
 

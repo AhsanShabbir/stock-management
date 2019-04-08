@@ -20,17 +20,18 @@
                 <li class="active">
                     <a href="{{ url('/home') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                 </li>
-                <h3 class="menu-title"></h3><!-- /.menu-title -->
+                {{-- <h3 class="menu-title"></h3><!-- /.menu-title -->
                 <li class="">
                     <a href="{{ url('/siteSetting') }}"> <i class="menu-icon fa fa-cogs"></i>Site Settings</a>
-                </li>
+                </li> --}}
 
                 <h3 class="menu-title"></h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Clients</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="{{ route('clients.index') }}">All clients</a></li>
                         <li><i class="fa fa-plus-square"></i><a href="{{ route('clients.create') }}">Add a new client</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{ route('clients.index') }}">All clients</a></li>
+                        
                     </ul>
                 </li>
 
@@ -46,8 +47,9 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Stock</a>
                     <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-square"></i><a href="{{ url('stock/add') }}">Add to the stock</a></li>
                         <li><i class="fa fa-table"></i><a href="{{ url('stock') }}">Stock</a></li>
-                        <li><i class="fa fa-plus-square"></i><a href="{{ url('stock/add') }}">Add to the stock</a></li>
+                       
                     </ul>
                 </li>
 
@@ -55,8 +57,9 @@
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Orders</a>
                     <ul class="sub-menu children dropdown-menu">
+                         <li><i class="fa fa-plus-square"></i><a href="{{ url('orders/add') }}">New order</a></li>
                         <li><i class="fa fa-table"></i><a href="{{ url('orders') }}">All orders</a></li>
-                        <li><i class="fa fa-plus-square"></i><a href="{{ url('orders/add') }}">New order</a></li>
+                        
                     </ul>
                 </li>
 

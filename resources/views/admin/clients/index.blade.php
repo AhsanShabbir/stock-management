@@ -40,9 +40,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-info " >
-                                        <i class="fa fa-plus-square"></i> Add one
-                                    </button>
+
+                                        <a class="btn btn-primary" href="{{ route('clients.create') }}" role="button">New Client</a>
+                                   
                                 </div>
                                 <strong class="card-title">Clients</strong>
                             </div>

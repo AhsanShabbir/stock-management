@@ -12,4 +12,8 @@ class Clients extends Model
     protected $fillable = [
         'name', 'email', 'cin', 'phone', 'address', 'city', 'status'
     ];
+
+    public function orders(){
+        return $this->hasMany('App\Orders', 'client_id', 'id');
+    }
 }

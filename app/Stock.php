@@ -12,4 +12,8 @@ class Stock extends Model
     protected $fillable = [
         'goods_name', 'quantity', 'base_price', 'selling_price', 'status', 'notifications'
     ];
+
+    public function orders(){
+        return $this->hasMany('App\OrdersDetails', 'stock_id', 'id');
+    }
 }

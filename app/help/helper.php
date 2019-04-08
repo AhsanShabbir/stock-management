@@ -1,7 +1,5 @@
 <?php
-
-
-
+use App\Stock;
 
 function uploadImage($file, $path='')
 {
@@ -113,9 +111,22 @@ function notifications()
 }
 
 
+function has_dupes($array) {
+    return count($array) !== count(array_unique($array));
+}
 
 
+function checkQuantity($stockId, $quantity){
+  
+    $stock =  Stock::where('id', $stockId)->first();
+   
 
+    if($quantity <= $stock->quantity){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 
