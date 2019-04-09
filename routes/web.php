@@ -71,8 +71,6 @@ Route::group(["middleware" => "auth"], function (){
     Route::get('/calendar/all', 'HomeController@allCalendar');
     Route::get('/calendar/delete/{id}', 'HomeController@deleteCalendar');
     Route::post('/calendar/add', 'HomeController@storeCalendar');
-
-
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 });
