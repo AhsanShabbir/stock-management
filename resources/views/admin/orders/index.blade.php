@@ -57,6 +57,7 @@
                                         <th>Total</th>
                                         <th>Date</th>
                                         <th>status</th>
+                                        <th>Shipping Consignment #</th>
                                         <th>control</th>
                                     </tr>
                                     </thead>
@@ -72,6 +73,7 @@
                                             <td>{{ number_format($order->total) }} PKR</td>
                                             <td>{{ $order->created_at }}</td>
                                             <td>{{ $order->status }}</td>
+                                            <td>{{ $order->shipping_number }}</td>
                                             <td>
                                                 <a  href="{{ url('/order/show/'.$order->id) }}"><button class="btn btn-primary btn-sm">show </button></a>
                                                 <a class="confirmation"  href="{{ url('/order/delete/'.$order->id) }}"><button 

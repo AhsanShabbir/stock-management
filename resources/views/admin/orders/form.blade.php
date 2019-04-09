@@ -23,4 +23,10 @@
     {!! Form::select('client', clients(), null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group">
+        <label for="cc-payment" class="control-label mb-1"> Shipping Consignment # </label>
+        <input type="text" class = 'form-control' name="shipping_number" required> 
+    </div>
+    
+
 <br>

@@ -19,6 +19,7 @@ class Orders extends Migration
             $table->integer('total');
             $table->enum('status', ['complete', 'cancelled', 'processing'])->default('complete');
             $table->foreign('client_id')->references('id')->on('clients');
+            $table->text('shipping_number')->nullable();
             $table->timestamps();
         });
     }

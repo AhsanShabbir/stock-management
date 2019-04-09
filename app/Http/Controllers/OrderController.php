@@ -76,6 +76,8 @@ class OrderController extends Controller
 
         $order->total = $total;
 
+        $order->shipping_number = $request->input('shipping_number');
+
         $order->save();
 
         $redirectTo = route('orders.show', $order->id);

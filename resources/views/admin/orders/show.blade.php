@@ -59,6 +59,7 @@
                 <div class="col-sm-4 invoice-col pull-right">
                     <br>
                     <b>Order #:</b> {{ $order->id }}<br>
+                    <b>Shipping Consignment #:</b> {{ $order->shipping_number }}<br>
                     <b>Date:</b> {{ date_format($order->created_at, "d/m/y")  }}<br>
                     <b>Client:</b> {{ clients()[$order->client_id] }}
                 </div>
