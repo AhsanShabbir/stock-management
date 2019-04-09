@@ -17,4 +17,9 @@ class Orders extends Model
     {
         return $this->hasMany('App\OrdersDetails');
     }
+
+    public function client()
+    {
+        return $this->hasOne('App\Clients', 'id', 'client_id');
+    }
 }

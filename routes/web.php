@@ -62,6 +62,7 @@ Route::group(["middleware" => "auth"], function (){
     Route::post('/orders/add', 'OrderController@storeOrder');
     Route::get('/order/show/{id}', 'OrderController@showOrder')->name('orders.show');
     Route::get('/order/bill/{id}', 'OrderController@billOrder');
+    Route::get('/order/shipping/{id}', 'OrderController@shipOrder');
     Route::get('/order/delete/{id}', 'OrderController@destroyOrder');
 
 
@@ -72,8 +73,6 @@ Route::group(["middleware" => "auth"], function (){
     Route::post('/calendar/add', 'HomeController@storeCalendar');
 
 
-
-
-
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 });

@@ -33,6 +33,7 @@
     </div>
 
     <div class="content" style="background-color: white">
+        
 
         <section class="invoice" style="margin: 20px">
             <!-- title row -->
@@ -41,12 +42,20 @@
                     <h2 class="page-header" >
                         <i class="fa fa-globe"></i> Fatima Collections
                     </h2>
+
+                    
                 </div>
                 <!-- /.col -->
             </div>
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
+
+                        <br>
+                        <a href="{{ url('/order/shipping/'.$order->id) }}" target="_blank" ><button type="button" class="btn btn-primary" style="margin-right: 5px;">
+                      
+                            <i class="fa fa-print"></i> Shipping Badge
+                        </button></a>
                     {{-- <address>
                         <strong>Fatima Collections</strong><br>
                     </address> --}}

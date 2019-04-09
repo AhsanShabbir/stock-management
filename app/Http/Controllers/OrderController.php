@@ -106,6 +106,13 @@ class OrderController extends Controller
         return view('admin.orders.bill', compact('order', 'details'));
     }
 
+
+    public function shipOrder($id, Orders $orders, OrdersDetails $ordersDetails)
+    {
+        $order = $orders->with('client')->where('id', $id)->get()[0];
+        $details = $orders->find($id)->details()->get();
+        return view('admin.orders.shipping', compact('order', 'details'));
+    }
     public function destroyOrder($id, Orders $orders, OrdersDetails $details)
     {
         
