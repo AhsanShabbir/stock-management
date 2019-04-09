@@ -63,6 +63,16 @@
                     </ul>
                 </li>
 
+
+                <h3 class="menu-title"></h3><!-- /.menu-title -->
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Backup</a>
+                    <ul class="sub-menu children dropdown-menu">
+                         <li><i class="fa fa-plus-square"></i><a href="{{ route('dbdump') }}">Database Backup</a></li>
+        
+                    </ul>
+                </li>
+
                 {{-- <h3 class="menu-title"></h3><!-- /.menu-title -->
                 <li class="">
                     <a href="{{ url('/calendar') }}"> <i class="menu-icon fa fa-calendar-check-o"></i>Calendar</a>

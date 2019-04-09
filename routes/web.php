@@ -18,7 +18,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(["middleware" => "auth"], function (){
+    //take db backup
 
+    Route::get('/save-db-backup', 'HomeController@saveDb')->name('dbdump');
     //Home
     Route::get('/', 'HomeController@index');
 
