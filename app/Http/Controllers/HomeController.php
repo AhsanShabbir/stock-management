@@ -62,9 +62,9 @@ class HomeController extends Controller
     public function saveDb(){
        
 
-        $DBUSER="root";
-        $DBPASSWD="root";
-        $DATABASE="inventory";
+        $DBUSER= env('DB_USERNAME');
+        $DBPASSWD= env('DB_PASSWORD');
+        $DATABASE= env("DB_DATABASE");
 
         $filename = "backup-" . date("d-m-Y") . ".sql.gz";
         $mime = "application/x-gzip";
