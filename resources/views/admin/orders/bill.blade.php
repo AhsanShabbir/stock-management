@@ -80,8 +80,8 @@
                             <th>{{ $detail->orders_id}}</th>
                             <td style="">{{ $detail->quantity }}</td>
                             <td>{{ goods()[$detail->stock_id] }}</td>
-                            <td>{{ $detail->amount / $detail->quantity }} DH</td>
-                            <td>{{ $detail->amount }} DH</td>
+                            <td>PKR {{ number_format($detail->amount / $detail->quantity, 2) }} </td>
+                            <td>PKR {{ number_format($detail->amount,2)}} </td>
                         </tr>
 
                     @endforeach
@@ -91,7 +91,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th>{{ $order->total }} DH</th>
+                    <th>PKR {{ number_format($order->total,2)}} </th>
                     </tfoot>
                 </table>
             </div>
